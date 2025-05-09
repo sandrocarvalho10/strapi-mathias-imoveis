@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "singularName": "lead",
+    "pluralName": "leads",
+    "displayName": "Lead"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "blocks",
+      "required": false
+    },
+    "estates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property.property",
+      "mappedBy": "lead"
+    },
+    "origin": {
+      "type": "enumeration",
+      "enum": [
+        "site",
+        "whatsapp",
+        "instagram",
+        "outro"
+      ]
+    }
+  }
+}
