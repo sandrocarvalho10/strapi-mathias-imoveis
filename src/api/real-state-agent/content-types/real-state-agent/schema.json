@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_state_agents",
+  "info": {
+    "singularName": "real-state-agent",
+    "pluralName": "real-state-agents",
+    "displayName": "Real State Agent"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "creci": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "estates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property.property",
+      "mappedBy": "real_state_agent"
+    }
+  }
+}
