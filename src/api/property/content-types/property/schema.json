@@ -1,0 +1,106 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "Estate",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "descricao": {
+      "type": "richtext",
+      "required": true
+    },
+    "purpose": {
+      "type": "enumeration",
+      "enum": [
+        "venda",
+        "aluguel"
+      ],
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "casa",
+        "apartamento",
+        "terreno",
+        "comercial"
+      ],
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "disponivel",
+        "vendido",
+        "alugado"
+      ],
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "usable_area": {
+      "type": "decimal"
+    },
+    "total_area": {
+      "type": "decimal"
+    },
+    "bedrooms": {
+      "type": "integer"
+    },
+    "bathrooms": {
+      "type": "integer"
+    },
+    "parking_spaces": {
+      "type": "integer"
+    },
+    "feature": {
+      "displayName": "feature",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "real_state_agent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::real-state-agent.real-state-agent",
+      "inversedBy": "estates"
+    },
+    "lead": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lead.lead",
+      "inversedBy": "estates"
+    }
+  }
+}
